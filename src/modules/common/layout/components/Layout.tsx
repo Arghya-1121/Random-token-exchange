@@ -19,7 +19,7 @@ const Layout: FC<LayoutProps> = (props) => {
       <Box px="24" py="16">
         {children}
       </Box>
-      <PoweredByLogo />
+      
       {/* <Box>
         <Footer />
       </Box> */}

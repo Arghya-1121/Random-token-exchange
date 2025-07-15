@@ -64,7 +64,7 @@ export default extendTheme({
   },
   colors: {
     primary: {
-      25: "#FCFAFF ",
+      25: "#FCFAFF",
       50: "#F9F5FF",
       100: "#F4EBFF",
       200: "#E9D7FE",
@@ -201,17 +201,17 @@ export default extendTheme({
   textStyles: {
     h1: {
       fontWeight: 700,
-      color: "gray.900",
+      //color: "gray.900",
       fontSize: "xl",
       mb: 2,
       letterSpacing: 0.5,
     },
     bold: {
-      color: "gray.700",
+      //color: "gray.700",
       fontWeight: 700,
     },
     light: {
-      color: "gray.500",
+      //color: "gray.500",
       fontSize: "sm",
     },
   },

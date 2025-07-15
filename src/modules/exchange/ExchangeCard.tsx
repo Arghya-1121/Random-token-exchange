@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Button, Image } from "@chakra-ui/react";
+import { Box, Flex, Text, Button, Image, useColorModeValue } from "@chakra-ui/react";
 import React, { ChangeEvent, FC, useMemo } from "react";
 import ExchangeInput from "./ExchangeInput";
 import { ArrowDownIcon } from "@/modules/common/icons";
@@ -54,41 +54,51 @@ const ExchangeCard: FC<ExchangeCardProps> = (props) => {
     nativeDenom: config.coinDenom
   });
 
+  // Add color mode aware backgrounds
+  const cardBg = useColorModeValue('white', 'gray.800');
+  const supplyInfoBg = useColorModeValue('blue.50', 'gray.700');
+  const tokenInfoBg = useColorModeValue('gray.100', 'gray.700');
+  // Add color mode aware text colors
+  const mainTextColor = useColorModeValue('gray.900', 'white');
+  const secondaryTextColor = useColorModeValue('gray.600', 'gray.300');
+  const labelTextColor = useColorModeValue('blackAlpha.700', 'gray.300');
+  const balanceTextColor = useColorModeValue('#5B6BCF', 'purple.200');
+
   return (
-    <Box borderWidth='1px' borderRadius='lg' padding={6} data-testid="exchange-card">
-      <Text fontWeight="bold" fontSize="3xl" data-testid="buy-tokens-title">Buy {symbol} Tokens</Text>
-      <Flex gap={6} backgroundColor={"blue.50"} rounded={"sm"} py={1} px={4} mt={6} data-testid="supply-info">
+    <Box borderWidth='1px' borderRadius='lg' padding={6} data-testid="exchange-card" bg={cardBg}>
+      <Text fontWeight="bold" fontSize="3xl" data-testid="buy-tokens-title" color={mainTextColor}>Buy {symbol} Tokens</Text>
+      <Flex gap={6} backgroundColor={supplyInfoBg} rounded={"sm"} py={1} px={4} mt={6} data-testid="supply-info">
         <Flex gap={1}>
-          <Text color={"blackAlpha.600"}>Max Supply</Text>
-          <Text fontWeight={"bold"}>{formatNumber(total_amount)} {symbol}</Text>
+          <Text color={labelTextColor}>Max Supply</Text>
+          <Text fontWeight={"bold"} color={mainTextColor}>{formatNumber(total_amount)} {symbol}</Text>
         </Flex>
         <Flex gap={1}>
-          <Text color={"blackAlpha.600"}>Available for Purchase</Text>
-          <Text fontWeight={"bold"}>{formatNumber(amount)} {symbol}</Text>
+          <Text color={labelTextColor}>Available for Purchase</Text>
+          <Text color={mainTextColor} fontWeight={"bold"}>{formatNumber(amount)} {symbol}</Text>
         </Flex>
       </Flex>
       <Box mt={6}>
         <Flex justify={"space-between"} mb={2} data-testid="balance-info">
-          <Text color={"blackAlpha.600"}>You pay in {account ? balance.denom : "uandr"}</Text>
-          <Text color={"#5B6BCF"} decoration={"underline"}>Balance: {balance.amount}</Text>
+          <Text color={secondaryTextColor}>You pay in {account ? balance.denom : "uandr"}</Text>
+          <Text color={balanceTextColor} decoration={"underline"}>Balance: {balance.amount}</Text>
         </Flex>
         <ExchangeInput onChange={handleAndrInput} value={nativeAmount} icon={chainConfig?.iconUrls?.sm || ''} symbol={symbol} />
       </Box>
       <Box textAlign={"center"} my={4}>
-        <ArrowDownIcon color={"#5B6BCF"} />
+        <ArrowDownIcon color={balanceTextColor} />
       </Box>
       {account ? (
         <Box data-testid="exchange-actions">
           <Box mb={6}>
             <Flex justify={"space-between"} mb={2}>
-              <Text color={"blackAlpha.600"}>You get {symbol}</Text>
+              <Text color={secondaryTextColor}>You get {symbol}</Text>
             </Flex>
-            <Flex justify={"space-between"} align={"center"} mb={2} background={"gray.100"} py={2} px={3} borderRadius={"lg"} data-testid="token-receive-info">
-              <Text fontWeight={"bold"}>{Math.floor(nativeAmount / exchange_rate) || 0}</Text>
+            <Flex justify={"space-between"} align={"center"} mb={2} background={tokenInfoBg} py={2} px={3} borderRadius={"lg"} data-testid="token-receive-info">
+              <Text fontWeight={"bold"} color={mainTextColor}>{Math.floor(nativeAmount / exchange_rate) || 0}</Text>
               <Image src={cw20_url} alt={symbol} w="8" />
             </Flex>
           </Box>
-          <Button backgroundColor={"gray.900"} display={"block"} width={"full"} onClick={open} isDisabled={nativeAmount == 0} data-testid="buy-button">
+          <Button backgroundColor={"gray.900"} color={mainTextColor} display={"block"} width={"full"} onClick={open} isDisabled={nativeAmount == 0} data-testid="buy-button">
             Buy
           </Button>
           <ExchangeCardSummary

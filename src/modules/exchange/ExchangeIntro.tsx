@@ -18,16 +18,11 @@ const ExchangeIntro: FC<ExchangeIntroProps> = (props) => {
     <Flex direction="row" justify={"space-between"} my={"auto"} data-testid="exchange-intro">
       <Flex direction="column" width={663}>
         <Text fontWeight="bold" fontSize="6xl" mt="2" lineHeight={"shorter"} data-testid="intro-title">
-          Buy and sell CW20 tokens on {chainConfig?.chainName} Chain
+          Buy CW20 token named Random on {chainConfig?.chainName} Chain
         </Text>
         <Text fontWeight="light" fontSize="md" mt="2" mb="2" data-testid="intro-description">
           {tokenInfo?.marketingInfo?.description}
         </Text>
-        <Link href={tokenInfo?.marketingInfo?.project} target="_blank" data-testid="learn-more-link">
-          <Button width={"fit-content"} backgroundColor={"gray.900"} paddingX={12} data-testid="learn-more-button">
-            Learn more
-          </Button>
-        </Link>
       </Flex>
     </Flex>
   );
