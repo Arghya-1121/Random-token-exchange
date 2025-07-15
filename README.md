@@ -116,15 +116,15 @@ Use the toggle button in the navigation bar to switch between:
 ### Landing Page
 
 <div align="center">
-<img src="./docs/screenshots/landing.png" alt="Landing Page" width="400" />
-<img src="./docs/screenshots/landing-dark.png" alt="Landing Page Dark" width="400" />
+<img src=".docs/screenshots/landing.png" alt="Landing Page" width="400" />
+<img src=".docs/screenshots/landing-dark.png" alt="Landing Page Dark" width="400" />
 </div>
 
 ### NFT Marketplace
 
 <div align="center">
-<img src="./docs/screenshots/marketplace.png" alt="Marketplace" width="400" />
-<img src="./docs/screenshots/marketplace-dark.png" alt="Marketplace Dark" width="400" />
+<img src=".docs/screenshots/marketplace.png" alt="Marketplace" width="400" />
+<img src=".docs/screenshots/marketplace-dark.png" alt="Marketplace Dark" width="400" />
 </div>
 
 ## 🛠 Tech Stack
