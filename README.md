@@ -18,7 +18,7 @@ Random is a decentralized application (dApp) built on the Andromeda Protocol tha
 - **Modular Architecture**: Easy to extend and integrate additional features in the future.
 
 ## Embeddable Demo
-Experience Random in action! Check out the [Live Demo](random-token-exchange.vercel.app) for a hands-on demonstration of the dApp.
+Experience Random in action! Check out the [Live Demo](https://random-token-exchange.vercel.app) for a hands-on demonstration of the dApp.
 
 ## Future Scope
 - **Expanded Exchange Options**: Introducing additional trading pairs and liquidity pools.
